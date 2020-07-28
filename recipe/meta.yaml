@@ -1,5 +1,5 @@
 {% set name = "libsoup" %}
-{% set version = "2.70.0" %}
+{% set version = "2.71.0" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 54b020f74aefa438918d8e53cff62e2b1e59efe2de53e06b19a4b07b1f4d5342
+  sha256: 88e24fad72d16e1cb692c8782688dbee4bf44151efb0d9ed25b14f3849d9896e
   patches:
     # https://gitlab.gnome.org/GNOME/libsoup/-/merge_requests/132
     - sqlite-search.patch  # [win]
