@@ -1,5 +1,5 @@
 {% set name = "libsoup" %}
-{% set version = "2.74.1" %}
+{% set version = "3.0.6" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: dc27a3b8fa30bc8ff950b5a75958757d2242e3e51e4e2d9c4e623ef75f793bf8
+  sha256: b45d59f840b9acf9bb45fd45854e3ef672f57e3ab957401c3ad8d7502ac23da6
 
 build:
   number: 0
