@@ -7,7 +7,7 @@ set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%B
 :: set the path to the modules explicitly, as they won't get found otherwise
 set "GIO_MODULE_DIR=%LIBRARY_LIB%\gio\modules"
 
-%BUILD_PREFIX%\Scripts\meson.exe ^
+meson ^
   setup builddir ^
   --wrap-mode=nofallback ^
   --buildtype=release ^
