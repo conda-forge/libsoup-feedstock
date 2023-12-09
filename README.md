@@ -192,6 +192,3 @@ Feedstock Maintainers
 
 * [@tschoonj](https://github.com/tschoonj/)
 
-
-<!-- dummy commit to enable rerendering -->
-
