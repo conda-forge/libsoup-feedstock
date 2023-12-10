@@ -1,6 +1,11 @@
+import sys
+# Windows is built without gi support
+# https://github.com/conda-forge/libsoup-feedstock/issues/46
+if sys.platform == 'win32':
+    sys.exit(0)
+
 import gi
 import os
-import sys
 from pathlib import PurePath
 
 gi.require_version("Soup", "3.0")
