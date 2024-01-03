@@ -11,9 +11,7 @@ source:
   sha256: 291c67725f36ed90ea43efff25064b69c5a2d1981488477c05c481a3b4b0c5aa
 
 build:
-  number: 1
-  # skipping Windows builds until there is a Windows build of nghttp2
-  skip: true  # [win]
+  number: 2
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup
@@ -49,7 +47,7 @@ requirements:
     # Needs run export
     # https://github.com/conda-forge/glib-networking-feedstock/pull/28
     - glib-networking
-    # https://github.com/conda-forge/libpsl-feedstock/issues/11
+    # https://github.com/conda-forge/libpsl-feedstock/pull/12
     - libpsl
 
 test:
@@ -64,9 +62,11 @@ test:
     - test -f ${PREFIX}/lib/girepository-1.0/Soup-3.0.typelib                # [unix]
     - test -f ${PREFIX}/lib/pkgconfig/libsoup-3.0.pc                         # [unix]
     - if not exist %LIBRARY_LIB%\\pkgconfig\\libsoup-3.0.pc exit 1           # [win]
-    - if not exist %LIBRARY_LIB%\\girepository-1.0\\Soup-3.0.typelib exit 1  # [win]
+    # Manually enable gi tests in run_tests.py before uncommenting this line
+    # - if not exist %LIBRARY_LIB%\\girepository-1.0\\Soup-3.0.typelib exit 1  # [win]
+    - if exist %LIBRARY_LIB%\\girepository-1.0\\Soup-3.0.typelib exit 1      # [win]
     - if not exist %LIBRARY_INC%\\libsoup-3.0\\libsoup\\soup.h exit 1        # [win]
-    - if not exist %LIBRARY_BIN%\\soup-3.0-1.dll exit 1                      # [win]
+    - if not exist %LIBRARY_BIN%\\soup-3.0-0.dll exit 1                      # [win]
     - if not exist %LIBRARY_LIB%\\soup-3.0.lib exit 1                        # [win]
 
 about:
@@ -79,3 +79,4 @@ about:
 extra:
   recipe-maintainers:
     - tschoonj
+    - hmaarrfk
