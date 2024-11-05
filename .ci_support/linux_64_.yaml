@@ -1,9 +1,9 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '12'
+- '13'
 cdt_name:
-- cos6
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
@@ -12,11 +12,13 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 glib:
 - '2'
+libsoup:
+- '3'
 libxml2:
-- '2.12'
+- '2'
 sqlite:
 - '3'
 target_platform:
 - linux-64
 zlib:
-- '1.2'
+- '1'
