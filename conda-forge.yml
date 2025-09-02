@@ -12,6 +12,9 @@ test: native_and_emulated
 github:
   branch_name: main
   tooling_branch_name: main
+test_on_native_only: true
 bot:
   abi_migration_branches:
-    - 2.x
+  - 2.x
+  version_updates:
+    even_odd_versions: true
