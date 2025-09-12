@@ -6,5 +6,7 @@ if test "$GIO_MODULE_DIR" != "" ; then
   unset GIO_MODULE_DIR
 fi
 
-$CC ${LDFLAGS} -o test $RECIPE_DIR/test.c $(pkg-config --cflags --libs libsoup-3.0)
+$CC $(pkg-config --cflags libsoup-3.0) \
+    -o test $RECIPE_DIR/test.c \
+    ${LDFLAGS} $(pkg-config --libs libsoup-3.0)
 ./test
