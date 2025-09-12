@@ -38,6 +38,7 @@ requirements:
     - sqlite
     - libxml2
     - brotli
+    - libintl-devel     # [win]
     - libnghttp2
     - libpsl
     - glib-networking
