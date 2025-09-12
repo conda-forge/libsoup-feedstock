@@ -40,7 +40,6 @@ meson_config_args=(
     -Dtests=false
     -Dvapi=disabled
     -Dgssapi=disabled
-    -Dkrb5_config=disabled
     -Dsysprof=disabled
     -Dtls_check=false
     --wrap-mode=nofallback
