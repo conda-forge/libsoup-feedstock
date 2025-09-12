@@ -1,9 +1,8 @@
-{% set name = "libsoup" %}
 {% set version = "3.4.4" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
-  name: {{ name|lower }}
+  name: libsoup
   version: {{ version }}
 
 source:
@@ -19,6 +18,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - meson
     - ninja
