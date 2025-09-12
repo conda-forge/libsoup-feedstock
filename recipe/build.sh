@@ -35,15 +35,15 @@ fi
 export CPPFLAGS="-D_BSD_SOURCE=1 ${CPPFLAGS}"
 
 meson_config_args=(
-	-Dbrotli=enabled
-	-Dintrospection=enabled
-	-Dtests=false
-	-Dvapi=disabled
-	-Dgssapi=disabled
-	-Dkrb5_config=disabled
-	-Dsysprof=disabled
-	-Dtls_check=false
-	--wrap-mode=nofallback
+    -Dbrotli=enabled
+    -Dintrospection=enabled
+    -Dtests=false
+    -Dvapi=disabled
+    -Dgssapi=disabled
+    -Dkrb5_config=disabled
+    -Dsysprof=disabled
+    -Dtls_check=false
+    --wrap-mode=nofallback
 )
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == 1 && "${CMAKE_CROSSCOMPILING_EMULATOR:-}" == "" ]]; then
@@ -86,8 +86,8 @@ fi
 export GIO_MODULE_DIR=$PREFIX/lib/gio/modules
 
 meson setup builddir \
-	${MESON_ARGS} \
-	"${meson_config_args[@]}"
+    ${MESON_ARGS} \
+    "${meson_config_args[@]}"
 ninja -v -C builddir -j ${CPU_COUNT}
 ninja -C builddir install -j ${CPU_COUNT}
 
