@@ -13,7 +13,7 @@ source:
     - fix_libxml2_212.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - meson
     - ninja
     - pkg-config
@@ -30,7 +31,7 @@ requirements:
     - gettext     # [build_platform != target_platform]
     - glib        # [build_platform != target_platform]
     - sqlite      # [build_platform != target_platform]
-    - libxml2     # [build_platform != target_platform]
+    - libxml2-devel     # [build_platform != target_platform]
     - brotli      # [build_platform != target_platform]
     - libpsl      # [build_platform != target_platform]
     - glib-networking  # [build_platform != target_platform]
@@ -38,7 +39,7 @@ requirements:
   host:
     - glib
     - sqlite
-    - libxml2
+    - libxml2-devel
     - brotli
     - libpsl
     - glib-networking
