@@ -1,5 +1,5 @@
 {% set name = "libsoup" %}
-{% set version = "3.4.4" %}
+{% set version = "3.6.5" %}
 {% set version_majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ version_majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 291c67725f36ed90ea43efff25064b69c5a2d1981488477c05c481a3b4b0c5aa
+  sha256: 6891765aac3e949017945c3eaebd8cc8216df772456dc9f460976fbdb7ada234
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup
@@ -20,6 +20,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - meson
     - ninja
     - pkg-config
