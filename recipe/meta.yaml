@@ -11,7 +11,7 @@ source:
   sha256: 291c67725f36ed90ea43efff25064b69c5a2d1981488477c05c481a3b4b0c5aa
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup
@@ -20,6 +20,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - meson
     - ninja
     - pkg-config
@@ -28,7 +29,7 @@ requirements:
     - gettext     # [build_platform != target_platform]
     - glib        # [build_platform != target_platform]
     - sqlite      # [build_platform != target_platform]
-    - libxml2     # [build_platform != target_platform]
+    - libxml2-devel     # [build_platform != target_platform]
     - libnghttp2  # [build_platform != target_platform]
     - brotli      # [build_platform != target_platform]
     - libpsl      # [build_platform != target_platform]
@@ -37,7 +38,7 @@ requirements:
   host:
     - glib
     - sqlite
-    - libxml2
+    - libxml2-devel
     - brotli
     - libnghttp2
     - libpsl
