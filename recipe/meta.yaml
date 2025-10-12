@@ -38,10 +38,13 @@ requirements:
     - sqlite
     - libxml2
     - brotli
+    - gettext           # [win]
     - libintl-devel     # [win]
+    - libintl           # [win]
     - libnghttp2
     - libpsl
     - glib-networking
+    - libgirepository
     - zlib
   run:
     # Needs run export
