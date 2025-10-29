@@ -13,7 +13,7 @@ source:
     - fix_libxml2_212.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup
@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - meson
     - ninja
     - pkg-config
