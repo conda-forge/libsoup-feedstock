@@ -7,6 +7,9 @@ set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%B
 :: set the path to the modules explicitly, as they won't get found otherwise
 set "GIO_MODULE_DIR=%LIBRARY_LIB%\gio\modules"
 
+:: add libintl to linker flags for Windows
+set "LDFLAGS=%LDFLAGS% /LIBPATH:%LIBRARY_LIB% intl.lib"
+
 meson ^
     setup builddir ^
     --wrap-mode=nofallback ^

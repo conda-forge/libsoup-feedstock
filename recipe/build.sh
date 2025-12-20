@@ -1,5 +1,19 @@
 set -ex
 
+# Ensure we don't vendor zlib
+rm -rf subprojects/zlib*
+
+# Requires.private and Libs.private
+# Are not meaningful in the context of shared libraries for conda-forge
+# We thus "remove them" outright to avoid
+# burdening the recipe
+# https://github.com/conda-forge/harfbuzz-feedstock/pull/146
+# https://github.com/conda-forge/conda-forge.github.io/issues/1880
+find "${PREFIX}/lib/pkgconfig" -type f -name '*.pc' -exec sed -i.bak \
+    -e '/^Requires\.private/d' \
+    -e '/^Libs\.private/d' \
+    {} +
+find "${PREFIX}/lib/pkgconfig" -type f -name '*.bak' -delete
 
 # get meson to find pkg-config when cross compiling
 export PKG_CONFIG=$BUILD_PREFIX/bin/pkg-config
@@ -32,7 +46,7 @@ meson_config_args=(
 	--wrap-mode=nofallback
 )
 
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == 1 && "${CMAKE_CROSSCOMPILING_EMULATOR:-}" == "" ]]; then
   unset _CONDA_PYTHON_SYSCONFIGDATA_NAME
   (
     mkdir -p native-build
@@ -76,3 +90,16 @@ meson setup builddir \
 	"${meson_config_args[@]}"
 ninja -v -C builddir -j ${CPU_COUNT}
 ninja -C builddir install -j ${CPU_COUNT}
+
+# hmaarrfk -- 2025/12/19
+# Requires.private and Libs.private
+# Are not meaningful in the context of shared libraries for conda-forge
+# We thus "remove them" outright to avoid
+# burdening the recipe
+# https://github.com/conda-forge/harfbuzz-feedstock/pull/146
+# https://github.com/conda-forge/conda-forge.github.io/issues/1880
+find "${PREFIX}/lib/pkgconfig" -type f -name '*.pc' -exec sed -i.bak \
+    -e '/^Requires\.private/d' \
+    -e '/^Libs\.private/d' \
+    {} +
+find "${PREFIX}/lib/pkgconfig" -type f -name '*.bak' -delete
