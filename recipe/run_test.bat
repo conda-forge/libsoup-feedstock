@@ -10,7 +10,7 @@ for /f "usebackq tokens=*" %%a in (`pkg-config --msvc-syntax --libs libsoup-3.0`
 ECHO %PC_CFLAGS%
 ECHO %PC_LIBS%
 
-%CC% %PC_CFLAGS% %PC_LIBS% %RECIPE_DIR%\test.c
+%CC% %CFLAGS% %LDFLAGS% %PC_CFLAGS% %PC_LIBS% %RECIPE_DIR%\test.c
 if errorlevel 1 exit 1
 test
 if errorlevel 1 exit 1
