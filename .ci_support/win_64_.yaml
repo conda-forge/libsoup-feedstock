@@ -1,16 +1,22 @@
+brotli:
+- '1.2'
 c_compiler:
-- vs2019
+- vs2022
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 glib:
 - '2'
+libpsl:
+- '0.23'
+libsoup:
+- '3'
 libxml2:
-- '2.12'
+- '2.14'
 sqlite:
 - '3'
 target_platform:
 - win-64
 zlib:
-- '1.2'
+- '1'
