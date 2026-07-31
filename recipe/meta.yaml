@@ -9,7 +9,7 @@ source:
   sha256: 828c357f6deca0646744ca2045870a8a215cd97a87357069b8fe94a786d8c316
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # Seems to have excellent forward compatibility in the 2.x series
     # https://abi-laboratory.pro/index.php?view=timeline&l=libsoup

@@ -10,6 +10,8 @@ channel_targets:
 - conda-forge main
 glib:
 - '2'
+libpsl:
+- '0.23'
 libsoup:
 - '3'
 sqlite:
