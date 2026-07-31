@@ -1,17 +1,25 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
+brotli:
+- '1.2'
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '19'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 glib:
 - '2'
+libpsl:
+- '0.23'
+libsoup:
+- '3'
 libxml2:
-- '2.12'
+- '2.14'
 macos_machine:
 - arm64-apple-darwin20.0.0
 sqlite:
@@ -19,4 +27,4 @@ sqlite:
 target_platform:
 - osx-arm64
 zlib:
-- '1.2'
+- '1'
