@@ -7,7 +7,7 @@ brotli:
 c_compiler:
 - clang
 c_compiler_version:
-- '19'
+- '21'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -18,6 +18,8 @@ channel_targets:
 - conda-forge main
 glib:
 - '2'
+libpsl:
+- '0.23'
 libsoup:
 - '3'
 macos_machine:
