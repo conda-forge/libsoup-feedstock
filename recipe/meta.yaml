@@ -1,4 +1,4 @@
-{% set version = "3.8.0" %}
+{% set version = "3.8.1" %}
 
 package:
   name: libsoup
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://gitlab.gnome.org/GNOME/libsoup/-/archive/{{ version }}/libsoup-{{ version }}.tar.gz
-  sha256: 850c4936a36c08ef68234f6384655a65a2da6b639815a222c369e42a04747167
+  sha256: ba8a7b232debff8eb9aca894010499f0ae377c406f32e30a9a35d1cf06c29771
 
 build:
   number: 0
